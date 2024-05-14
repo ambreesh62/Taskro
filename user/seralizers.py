@@ -2,9 +2,12 @@ from rest_framework import serializers
 from user.models import User
 
 class UserRegisterSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(required=True)  
+
     class Meta:
         model = User
         fields = '__all__' 
+        # fields = ['username', 'password']
     
     def create(self, validated_data):
         user = User.objects.create(username=validated_data.get('username'))

@@ -1,7 +1,6 @@
 from django.db import models
 from base.models import BaseModel
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 
 
@@ -18,4 +17,4 @@ class User(AbstractUser):
     employee_no = models.CharField(("Employee No"), max_length=50, blank=True)
     
     def __str__(self) -> str:
-        return self.name
+        return self.username
